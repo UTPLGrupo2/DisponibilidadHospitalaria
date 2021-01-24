@@ -1,0 +1,21 @@
+﻿@model InstitucionDto
+
+@{
+}
+
+<tr>
+    <td class="bg-info text-white" colspan="4">
+        <span>@Model.Nombre</span>
+    </td>
+</tr>
+@foreach (var item in Model.Unidades)
+{
+    <tr>
+        <td width="35px"></td>
+        <td><span>@item.Denominacion</span></td>
+        <td>@item.TipoDeUnidad</td>
+        <td>
+            <span class="badge badge-primary badge-pill">@item.Capacidad</span>
+        </td>
+    </tr>
+}

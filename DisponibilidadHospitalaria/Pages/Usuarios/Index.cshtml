@@ -1,0 +1,57 @@
+﻿@page
+@model DisponibilidadHospitalaria.Pages.Usuarios.IndexModel
+@{
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-page="/Index">Inicio</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Usuarios Autorizados</li>
+    </ol>
+</nav>
+
+<hr />
+
+<div class="text-center">
+    <h1 class="display-4">Usuarios Autorizados</h1>
+</div>
+
+<div>
+    <a class="btn btn-primary btn-sm" title="Agregar nuevo registro" asp-page="./CrearUsuarioAsignado">Agregar</a>
+</div>
+<div>
+    <table class="table table-sm">
+        <thead class="thead-light">
+            <tr>
+                <th>Email</th>
+                <th>Institución</th>
+                <th>Ciudad</th>
+                <th>Provincia</th>
+                <th>Activo</th>
+                <th></th>
+            </tr>
+        </thead>
+        @foreach (var item in Model.Usuarios.OrderBy(x => x.Institucion_Provincia).ThenBy(x => x.Institucion_Ciudad).ThenBy(x => x.Institucion_Nombre).ThenBy(x => x.Email))
+        {
+            <tr>
+                <td>@item.Email</td>
+                <td>@item.Institucion_Nombre</td>
+                <td>@item.Institucion_Ciudad</td>
+                <td>@item.Institucion_Provincia</td>
+                <td style="text-align: center">
+                    @if (item.Activo)
+                    {
+                        <input type="checkbox" checked disabled>
+                    }
+                    else
+                    {
+                        <input type="checkbox" disabled>
+                    }
+                </td>
+                <td>
+                    <a class="btn btn-sm btn-link" asp-page="./EditarUsuarioAsignado" asp-route-id="@item.Id">Editar</a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

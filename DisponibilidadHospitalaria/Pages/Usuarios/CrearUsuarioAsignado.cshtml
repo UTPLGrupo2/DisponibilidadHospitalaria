@@ -1,0 +1,28 @@
+﻿@page
+@model DisponibilidadHospitalaria.Pages.Usuarios.CrearUsuarioAsignadoModel
+@{
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-page="/Index">Inicio</a></li>
+        <li class="breadcrumb-item"><a asp-page="./Index">Usuarios</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Crear Usuario</li>
+    </ol>
+</nav>
+
+<hr />
+
+<div class="text-center">
+    <h1 class="display-4">Crear Usuario</h1>
+</div>
+
+<br />
+
+<div class="row justify-content-center">
+    <div class="col-sm-12 col-md-8">
+        <div>
+            <partial name="_UsuarioAsignadoEditForm" model="@Model.Input" view-data="ViewData" />
+        </div>
+    </div>
+</div>

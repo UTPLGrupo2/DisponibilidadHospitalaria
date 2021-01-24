@@ -5,6 +5,11 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Disponibilidad Hospitalaria</h1>
+</div>
+
+<div>
+    <partial name="Ciudadano/_ElegirCiudad" model="@Model.FiltroCiudad" view-data="ViewData" />
+    <br />
+    <partial name="Ciudadano/_PresentarInstituciones" model="@Model.Ciudad" view-data="ViewData" />
 </div>
